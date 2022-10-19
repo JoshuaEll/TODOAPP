@@ -10,7 +10,7 @@ class ToDoSerialiazer(serializers.ModelSerializer):
 
     class Meta:
         model = todo
-        fields = ['pk', 'title', 'description', 'completed', 'author']
+        fields = ['id', 'title', 'description', 'completed', 'author']
     
     def get_username_from_author(self, todo):
         return todo.author.user_name
