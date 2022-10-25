@@ -44,10 +44,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'todos',
     'users',
-    'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    
 ]
 
 MIDDLEWARE = [
@@ -59,6 +63,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -98,11 +104,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'todo', 
         'USER': 'postgres', 
-        'PASSWORD': 'tier4!nasty79Q',
+        'PASSWORD': 'temp',
         'HOST': '127.0.0.1', 
         'PORT': '5432',
     }
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'temp'
+EMAIL_HOST_PASSWORD = 'temp'
+EMAIL_USE_TLS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -154,8 +168,10 @@ DJOSER = {
     'SEND_ACTIVATION_EMAIL': True,
     'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',
     'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': ['https://localhost:8000/google', 'https://localhost:8000/facebook'],
-    'SERIALICERS': {
-        
+    'SERIALIZERS': {
+        'user_create': 'users.serializers.UserSerializer',
+        'user': 'users.serializers.UserSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
     }
 }
 # Internationalization
@@ -174,6 +190,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
