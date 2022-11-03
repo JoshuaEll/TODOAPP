@@ -5,9 +5,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+.home--h1 {
+  display: flex;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-group .form-control {
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 50px;
+}
+
+.add--btn {
+  display: flex;
+  margin-left: 65px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+
+}
+
+.todo--container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  border: 1px;
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px;
+}
+

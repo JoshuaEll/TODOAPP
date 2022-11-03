@@ -18,13 +18,15 @@ class TodoList(generics.ListCreateAPIView):
         serializer.save(author=self.request.user)
     #GET and POST for todo list // For the get add only if the user matches the author in the todo
 
-class UserTodo(generics.ListAPIView):
+class UserTodo(generics.ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
     model = todo
     serializer_class = ToDoSerialiazer
     def get_queryset(self):
         return todo.objects.filter(author=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class DetailTodo(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]

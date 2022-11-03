@@ -15,19 +15,11 @@ import {
     ACTIVATION_SUCCESS,
     ACTIVATION_FAIL
 } from './types';
+
+
 import axios from 'axios';
 
-export const getToDo = () => async dispatch =>{
-    if (localStorage.getItem('access')){
-        const config = {
-            headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'  
-            }
-        };
-        const body = JSON.stringify()
-    }
-};
+
 
 export const checkAuthenticated = () => async dispatch => {
     if(localStorage.getItem('access')){

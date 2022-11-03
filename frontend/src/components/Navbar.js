@@ -16,14 +16,16 @@ const Navbar = ({ logout, isAuthenticated }) => {
     );
 
     const authLinks = () => (
-        <li className="nav-item">
-            <a className="nav-link" href="#!" onClick={logout}>Logout</a>
-        </li>
+        <>
+            <li className="nav-item">
+                <Link className="nav-link" to='/' onClick={logout}>Logout</Link>
+            </li>
+        </>
     );
     
     return (
     
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark border">
             <Link className="navbar-brand" to="/"> ToDo App</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

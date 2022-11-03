@@ -7,9 +7,11 @@ import Register from './containers/Register';
 import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import Activate from './containers/Activate';
+import  AddTodo  from './containers/AddTodo';
 import Layout from './hocs/Layout';
 import { Provider } from 'react-redux';
 import store from './store';
+import TodoList from './containers/TodoList';
 
 
 const App = () => (

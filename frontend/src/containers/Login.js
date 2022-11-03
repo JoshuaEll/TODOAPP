@@ -24,7 +24,7 @@ const Login = ({ login, isAuthenticated }) => {
        return <Navigate to='/' />
     }
     return(
-        <div className='container mt-5'>
+        <div className='container mt-5 bg-secondary'>
             <h1>Sign In</h1>
             <p>Sign into your Account</p>
             <form onSubmit={e => onSubmit(e)}>
